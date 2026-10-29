@@ -1,19 +1,20 @@
 const { Pool } = require("pg");
 require("dotenv").config();
 
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL is not configured");
+}
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: Number(process.env.DB_PORT) || 5432,
-
-    ssl: {
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
     rejectUnauthorized: true,
   },
-
   max: 5,
   connectionTimeoutMillis: 10000,
+});
+
+pool.on("error", (error) => {
+  console.error("Unexpected PostgreSQL pool error:", error.message);
 });
 
 module.exports = {
