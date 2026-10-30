@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+const BACKEND_URL = import.meta.env.VITE_BACKEND;
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ export default function AdminDashboard() {
         setError("");
 
         const response = await fetch(
-          "http://localhost:5000/api/admin/dashboard",
+          `${BACKEND_URL}/api/admin/dashboard`,
           { signal: controller.signal }
         );
 
@@ -85,7 +86,7 @@ export default function AdminDashboard() {
       setEmployeeError("");
 
       const response = await fetch(
-        "http://localhost:5000/api/admin/employees"
+        `${BACKEND_URL}/api/admin/employees`
       );
 
       const result = await response.json();
@@ -130,7 +131,7 @@ export default function AdminDashboard() {
       setEmployeeError("");
 
       const response = await fetch(
-        "http://localhost:5000/api/admin/employees",
+        `${BACKEND_URL}/api/admin/employees`,
         {
           method: "POST",
           headers: {
