@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND;
+
 export default function EmployeeDetails() {
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -13,7 +15,7 @@ export default function EmployeeDetails() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/admin/employees"
+        `${BACKEND_URL}/api/admin/employees`
       );
 
       const data = await response.json();
