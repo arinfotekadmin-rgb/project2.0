@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import BACKEND_URL = import.meta.env.BACKEND_URL;
+import BACKEND_URL = import.meta.env.BACKEND;
 
 export default function Login() {
   const navigate = useNavigate();
