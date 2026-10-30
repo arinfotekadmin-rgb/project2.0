@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import BACKEND_URL = import.meta.env.VITE_BACKEND;
+const BACKEND_URL = import.meta.env.VITE_BACKEND;
 
 export default function Login() {
   const navigate = useNavigate();
