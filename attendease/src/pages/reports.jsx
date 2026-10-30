@@ -2,7 +2,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const API = "http://localhost:5000/api";
+const BACKEND_URL = import.meta.env.VITE_BACKEND;
+
+const API = `${BACKEND_URL}/api`;
 
 function formatDate(value) {
   if (!value) return "-";
