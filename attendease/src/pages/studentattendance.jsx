@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import BACKEND_URL = import.meta.env.BACKEND_URL;
+import BACKEND_URL = import.meta.env.BACKEND;
 
 
 const COLLEGE_LOCATION = {
