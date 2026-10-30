@@ -1,7 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+const BACKEND_URL = import.meta.env.VITE_BACKEND;
 
-const API = "http://localhost:5000/api";
+const API = `${BACKEND_URL}/api`;
 
 const emptyForm = {
   first_name: "",
