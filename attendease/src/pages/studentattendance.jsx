@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import BACKEND_URL = import.meta.env.BACKEND_URL;
 
 
 const COLLEGE_LOCATION = {
@@ -9,7 +10,7 @@ const COLLEGE_LOCATION = {
   allowedRadius: 150,
 };
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = `{BACKEND_URL}`;
 
 function getDistanceInMetres(lat1, lon1, lat2, lon2) {
   const toRadians = (degrees) => (degrees * Math.PI) / 180;
