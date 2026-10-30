@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate,Link } from "react-router-dom";
+const BACKEND_URL = import.meta.env.VITE_BACKEND;
 
 export default function StudentDashboard() {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ export default function StudentDashboard() {
         setError("");
 
         const response = await fetch(
-          `http://localhost:5000/api/student/attendance/${studentId}`,
+          `${BACKEND_URL}/api/student/attendance/${studentId}`,
           { signal: controller.signal }
         );
 
