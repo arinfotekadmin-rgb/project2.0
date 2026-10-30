@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+const BACKEND_URL = import.meta.env.VITE_BACKEND;
 
 export default function MyProfile() {
   const [profile, setProfile] = useState(null);
@@ -29,7 +30,7 @@ export default function MyProfile() {
         }
 
         const response = await fetch(
-          `http://localhost:5000/api/student/profile/${encodeURIComponent(
+          `${BACKEND_URL}/student/profile/${encodeURIComponent(
             userId
           )}`
         );
