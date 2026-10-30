@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND;
+
 const initialForm = {
   first_name: "",
   last_name: "",
@@ -37,7 +39,7 @@ export default function EmployeeProfile() {
         setUserId(id);
 
         const response = await fetch(
-          `http://localhost:5000/api/admin/profile/${encodeURIComponent(id)}`
+          `${BACKEND_URL}/api/admin/profile/${encodeURIComponent(id)}`
         );
 
         const data = await response.json();
