@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND;
+
 export default function AdminAttendance() {
   const today = new Date().toLocaleDateString("en-CA");
 
@@ -23,7 +25,7 @@ export default function AdminAttendance() {
 
       try {
         const response = await fetch(
-          `http://localhost:5000/api/attendance/admin?date=${selectedDate}`
+          `${BACKEND_URL}/api/attendance/admin?date=${selectedDate}`
         );
 
         const data = await response.json();
@@ -57,7 +59,7 @@ export default function AdminAttendance() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/attendance/admin/${studentId}`,
+        `${BACKEND_URL}/api/attendance/admin/${studentId}`,
         {
           method: "PUT",
           headers: {
@@ -78,7 +80,7 @@ export default function AdminAttendance() {
 
       // Refresh records after saving
       const refreshResponse = await fetch(
-        `http://localhost:5000/api/attendance/admin?date=${selectedDate}`
+        `${BACKEND_URL}/api/attendance/admin?date=${selectedDate}`
       );
 
       const refreshData = await refreshResponse.json();
