@@ -10,7 +10,7 @@ const COLLEGE_LOCATION = {
   allowedRadius: 150,
 };
 
-const API_BASE = `{BACKEND_URL}`;
+const API_BASE = `${BACKEND_URL}`;
 
 function getDistanceInMetres(lat1, lon1, lat2, lon2) {
   const toRadians = (degrees) => (degrees * Math.PI) / 180;
