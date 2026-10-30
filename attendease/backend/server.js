@@ -86,7 +86,7 @@ app.post("/api/auth/login", async (req, res) => {
 
     const result = await db.query(
       `SELECT user_id, name, email, password_hash, role
-       FROM users
+       FROM public.users
        WHERE LOWER(email) = LOWER($1)
          AND role = $2`,
       [email.trim(), role.toLowerCase()]
