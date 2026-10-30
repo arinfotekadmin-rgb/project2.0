@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import BACKEND_URL = import.meta.env.BACKEND_URL;
 
 export default function Login() {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ export default function Login() {
 
     try {
       const response = await fetch(
-        "https://project2-0-1c7j.vercel.app/api/auth/login",
+        `${BACKEND_URL}/api/auth/login`,
         {
           method: "POST",
           headers: {
